@@ -1,0 +1,85 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:4000"
+    },
+    "/socket.io": {
+      "target": "http://localhost:4000",
+      "ws": true
+    }
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(jpg|gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    },
+    "moduleDirectories": [
+      "src",
+      "node_modules"
+    ],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "*",
+    "prop-types": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-redux": "*",
+    "react-router-dom": "*",
+    "redux": "*",
+    "redux-thunk": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "*",
+    "@babel/plugin-proposal-class-properties": "*",
+    "@babel/preset-env": "*",
+    "@babel/preset-react": "*",
+    "babel-eslint": "*",
+    "babel-jest": "*",
+    "babel-loader": "*",
+    "babel-plugin-transform-es2015-arrow-functions": "*",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "*",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.9.1",
+    "eslint": "*",
+    "eslint-loader": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-react": "*",
+    "html-webpack-plugin": "*",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "*",
+    "jest-enzyme": "^7.0.1",
+    "jsdom": "^13.2.0",
+    "mini-css-extract-plugin": "*",
+    "moxios": "^0.4.0",
+    "node-sass": "*",
+    "regenerator-runtime": "*",
+    "sass-loader": "*",
+    "webpack": "*",
+    "webpack-cli": "*",
+    "webpack-dev-server": "*"
+  }
+}
